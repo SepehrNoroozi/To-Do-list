@@ -82,6 +82,7 @@ void viewTasks(const vector<Task>& tasks) {
     }
 }
 
+//Function to mark a task as done
 void marTaskAsDone(vector<Task>& tasks) {
     int taskIndex;
     viewTasks(tasks);
@@ -93,5 +94,20 @@ void marTaskAsDone(vector<Task>& tasks) {
         cout << "Task marked as done.\n";
     } else {
         cout << "Invalid task number.\n";
+    }
+}
+
+//Function to delete a task
+void deleteTask(vector<Task)>& tasks) {
+    int taskIndex;
+    viewTasks(tasks); //Show the tasks before deleting one
+    cout<< "Enter task number to delete: ";
+    cin >> taskIndex;
+
+    if (taskIndex >= 1 && taskIndex <= tasks.size()) {
+        tasks.erase(task.begin() +taskIndex -1);
+        cout << "Task deleted.\n";
+    } else {
+        cout "Ivalid task number.\n";
     }
 }
