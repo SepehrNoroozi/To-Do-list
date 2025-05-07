@@ -82,3 +82,16 @@ void viewTasks(const vector<Task>& tasks) {
     }
 }
 
+void marTaskAsDone(vector<Task>& tasks) {
+    int taskIndex;
+    viewTasks(tasks);
+    cout << "Enter task Number to mark as done: ";
+    cin >> taskIndex;
+
+    if (taskIndex >= 1 && taskIndex <= tasks.size()) {
+        tasks[taskIndex - 1].markAsDone();
+        cout << "Task marked as done.\n";
+    } else {
+        cout << "Invalid task number.\n";
+    }
+}
