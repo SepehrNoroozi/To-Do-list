@@ -71,3 +71,14 @@ void addTask(vector<Task>& tasks) {
     cout << "Task added: " << description << std::endl;
 }
 
+//Function to view all tasks
+void viewTasks(const vector<Task>& tasks) {
+    if (tasks.empty()) {
+        cout << "No tasks available.\n";
+    } else {
+        for (size_t i = 0; i < tasks.size(); ++i) {
+            cout << i + 1 << ". " << tasks[i].getDescription() << (tasks[i].getIsDone() ? " [Done]" : " [Pending]") << emndl;
+        }
+    }
+}
+
