@@ -1,6 +1,12 @@
-#include <iostream>
+#include <iostream> //for input/output
+#include <vector> //to store the list of tasks
+#include <string> //for task description
+#include <fstream> //for file input/output
+#include <sstream> //for parsing lines from the file (optional)
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+using namespace std;
+
+int main()
+{
+
 }
