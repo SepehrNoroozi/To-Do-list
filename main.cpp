@@ -49,3 +49,25 @@ int main()
 {
     vector<Task> tasks;
 }
+
+//Function to display the menu options
+void displayMenu() {
+    cout << "\n==== To-Do :ist ====\n";
+    cout << "1. Add Task\n";
+    cout << "2. View Tasks\n";
+    cout << "3. Mark Task as Done\n";
+    cout << "4. Delete Task\n";
+    cout << "5. Save and Exit\n";
+    cout << "Enter your choice: ";
+}
+
+//Function to add a task
+void addTask(vector<Task>& tasks) {
+    cin.ignore();
+    string description;
+    cout << "Enter task description: ";
+    getline(std::cin, description);
+    tasks.push_back(Task(description));
+    cout << "Task added: " << description << std::endl;
+}
+
