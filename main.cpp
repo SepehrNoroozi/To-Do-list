@@ -48,6 +48,34 @@ void deleteTask(vector<Task>& tasks);
 int main()
 {
     vector<Task> tasks;
+    int choice;
+
+    do {
+        displayMenu();
+        cin >> choice;
+
+        switch (choice) {
+            case 1:
+                addTask(tasks);
+                break;
+            case 2:
+                viewTasks(tasks);
+                break;
+            case 3:
+                markTaskAsDone(tasks);
+                break;
+            case 4:
+                deleteTask(tasks);
+                break;
+            case 5:
+                cout << "Saving and exiting...\n";
+                //Saving task to files would be added here
+                break;
+            default:
+                cout << "Invalid choice, please try again\n";
+        }
+    } while (choice != 5);
+    return 0;
 }
 
 //Function to display the menu options
@@ -66,9 +94,9 @@ void addTask(vector<Task>& tasks) {
     cin.ignore();
     string description;
     cout << "Enter task description: ";
-    getline(std::cin, description);
+    getline(cin, description);
     tasks.push_back(Task(description));
-    cout << "Task added: " << description << std::endl;
+    cout << "Task added: " << description << endl;
 }
 
 //Function to view all tasks
@@ -77,13 +105,13 @@ void viewTasks(const vector<Task>& tasks) {
         cout << "No tasks available.\n";
     } else {
         for (size_t i = 0; i < tasks.size(); ++i) {
-            cout << i + 1 << ". " << tasks[i].getDescription() << (tasks[i].getIsDone() ? " [Done]" : " [Pending]") << emndl;
+            cout << i + 1 << ". " << tasks[i].getDescription() << (tasks[i].getIsDone() ? " [Done]" : " [Pending]") << endl;
         }
     }
 }
 
 //Function to mark a task as done
-void marTaskAsDone(vector<Task>& tasks) {
+void markTaskAsDone(vector<Task>& tasks) {
     int taskIndex;
     viewTasks(tasks);
     cout << "Enter task Number to mark as done: ";
@@ -98,16 +126,16 @@ void marTaskAsDone(vector<Task>& tasks) {
 }
 
 //Function to delete a task
-void deleteTask(vector<Task)>& tasks) {
+void deleteTask(vector<Task>& tasks) {
     int taskIndex;
     viewTasks(tasks); //Show the tasks before deleting one
     cout<< "Enter task number to delete: ";
     cin >> taskIndex;
 
     if (taskIndex >= 1 && taskIndex <= tasks.size()) {
-        tasks.erase(task.begin() +taskIndex -1);
+        tasks.erase(tasks.begin() +taskIndex -1);
         cout << "Task deleted.\n";
     } else {
-        cout "Ivalid task number.\n";
+        cout << "Invalid task number.\n";
     }
 }
