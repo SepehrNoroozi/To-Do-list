@@ -34,14 +34,15 @@ g++ -std=c++17 -o todo main.cpp
 
 ---
 
-💾 Saving and Loading
+### 💾 Saving and Loading
+
 All tasks are saved in a text file called tasks.txt located in the same directory as the program.
 
 When you run the program again, it automatically loads the saved tasks.
 
 ---
 
-🧩 Example Interaction
+### 🧩 Example Interaction
 ==== To-Do :ist ====
 1. Add Task
 2. View Tasks
@@ -55,7 +56,7 @@ Task added: Finish README
 
 ---
 
-📁 File Format
+### 📁 File Format
 Tasks are saved in tasks.txt like this:
 0|Buy groceries
 1|Finish homework
@@ -67,10 +68,10 @@ Where:
 
 ---
 
-📌 Author
+### 📌 Author
 Created by Sepehr Noroozi.
 
 ---
 
-📃 License
+### 📃 License
 This project is open-source and free to use.
