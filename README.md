@@ -28,10 +28,18 @@ This is a **command-line To-Do List app written in C++** that allows users to ma
 
 g++ -std=c++17 -o todo main.cpp
 
+### ▶️ Run:
+
+./todo
+
+---
+
 💾 Saving and Loading
 All tasks are saved in a text file called tasks.txt located in the same directory as the program.
 
 When you run the program again, it automatically loads the saved tasks.
+
+---
 
 🧩 Example Interaction
 ==== To-Do :ist ====
@@ -45,6 +53,8 @@ Enter task description: Finish README
 
 Task added: Finish README
 
+---
+
 📁 File Format
 Tasks are saved in tasks.txt like this:
 0|Buy groceries
@@ -55,8 +65,12 @@ Where:
 0 = Pending
 1 = Done
 
+---
+
 📌 Author
 Created by Sepehr Noroozi.
+
+---
 
 📃 License
 This project is open-source and free to use.
