@@ -44,6 +44,8 @@ void addTask(vector<Task>& tasks);
 void viewTasks(const vector<Task>& tasks);
 void markTaskAsDone(vector<Task>& tasks);
 void deleteTask(vector<Task>& tasks);
+void saveTasksToFile(const std::vector<Task>& tasks, const std::string& myTasks);
+void loadTasksFromFile(std::vector<Task>& tasks, const std::string& myTasks);
 
 int main()
 {
@@ -138,4 +140,41 @@ void deleteTask(vector<Task>& tasks) {
     } else {
         cout << "Invalid task number.\n";
     }
+}
+
+//Function to write tasks on .txt file
+void saveTasksToFile(const std::vector<Task>& tasks, const std::string& myTasks) {
+    std::ofstream file(myTasks);
+    if (!file) {
+        std::cerr << "Error opening file for writing.\n";
+        return;
+    }
+
+    for (const auto& task : tasks) {
+        file << task.isDone << "|" << task.getDescription() << "\n";
+    }
+
+    file.close();
+}
+
+//Function to read all the saved tasks from .txt file
+void loadTasksFromFile(std::vector<Task>& tasks, const std::string& myTasks) {
+    std::ifstream file(myTasks);
+    if (!file) {
+        // If the file doesn't exist, it's fine — just return empty task list
+        return;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::istringstream iss(line);
+        std::string status, desc;
+        if (std::getline(iss, status, '|') && std::getline(iss, desc)) {
+            Task task(desc);
+            task.setDone(status == "1");
+            tasks.push_back(task);
+        }
+    }
+
+    file.close();
 }
