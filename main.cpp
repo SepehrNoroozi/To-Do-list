@@ -27,6 +27,11 @@ public:
         return isDone;
     }
 
+    //Changes isDone to done
+    void setDone(bool done) {
+        isDone = done;
+    }
+
     //Mark task as done
     void markAsDone() {
         isDone = true;
@@ -35,6 +40,11 @@ public:
     //Setter for description (in case you want to change task description)
     void setDescription(const string& desc) {
         description = desc;
+    }
+
+    //Shows task
+    void display(int index) const {
+        std::cout << index << ". [" << (isDone ? "X" : " ") << "] " << description << "\n";
     }
 };
 
