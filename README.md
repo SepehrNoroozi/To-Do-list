@@ -43,13 +43,15 @@ When you run the program again, it automatically loads the saved tasks.
 ---
 
 ### 🧩 Example Interaction
-==== To-Do :ist ====
+==== To-Do list ====
 1. Add Task
 2. View Tasks
 3. Mark Task as Done
 4. Delete Task
 5. Save and Exit
+
 Enter your choice: 1
+
 Enter task description: Finish README
 
 Task added: Finish README
@@ -58,12 +60,15 @@ Task added: Finish README
 
 ### 📁 File Format
 Tasks are saved in tasks.txt like this:
+
 0|Buy groceries
+
 1|Finish homework
 
 Where:
 
 0 = Pending
+
 1 = Done
 
 ---
