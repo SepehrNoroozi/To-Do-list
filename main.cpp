@@ -54,12 +54,13 @@ void addTask(vector<Task>& tasks);
 void viewTasks(const vector<Task>& tasks);
 void markTaskAsDone(vector<Task>& tasks);
 void deleteTask(vector<Task>& tasks);
-void saveTasksToFile(const std::vector<Task>& tasks, const std::string& myTasks);
-void loadTasksFromFile(std::vector<Task>& tasks, const std::string& myTasks);
+void saveTasksToFile(const std::vector<Task>& tasks, const std::string& filename);
+void loadTasksFromFile(std::vector<Task>& tasks, const std::string& filename);
 
 int main()
 {
     vector<Task> tasks;
+    loadTasksFromFile(tasks,"tasks.txt");
     int choice;
 
     do {
@@ -81,7 +82,7 @@ int main()
                 break;
             case 5:
                 cout << "Saving and exiting...\n";
-                //Saving task to files would be added here
+                saveTasksToFile(tasks, "tasks.txt");
                 break;
             default:
                 cout << "Invalid choice, please try again\n";
@@ -153,23 +154,23 @@ void deleteTask(vector<Task>& tasks) {
 }
 
 //Function to write tasks on .txt file
-void saveTasksToFile(const std::vector<Task>& tasks, const std::string& myTasks) {
-    std::ofstream file(myTasks);
+void saveTasksToFile(const std::vector<Task>& tasks, const std::string& filename) {
+    std::ofstream file(filename);
     if (!file) {
         std::cerr << "Error opening file for writing.\n";
         return;
     }
 
     for (const auto& task : tasks) {
-        file << task.isDone << "|" << task.getDescription() << "\n";
+        file << task.getIsDone() << "|" << task.getDescription() << "\n";
     }
 
     file.close();
 }
 
 //Function to read all the saved tasks from .txt file
-void loadTasksFromFile(std::vector<Task>& tasks, const std::string& myTasks) {
-    std::ifstream file(myTasks);
+void loadTasksFromFile(std::vector<Task>& tasks, const std::string& filename) {
+    std::ifstream file(filename);
     if (!file) {
         // If the file doesn't exist, it's fine — just return empty task list
         return;
